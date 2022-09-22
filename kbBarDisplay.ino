@@ -1,4 +1,4 @@
-const char PROGRAMNAME[]    = "midi display";
+const char PROGRAMNAME[]    = "kbBarDisplay";
 const char PROGRAMVERSION[] = "// kb 20220922";
 const char PROGRAMMANUAL[]  = "  controls: none\n";
 
@@ -50,11 +50,11 @@ void loop() {
     unsigned char midiData2 = MIDI.getData2();
     
     if (midiType == 0xb0) {
-      // Serial.println((String)timecodeBar + (String)" <#" + (String)midiType + " " + (String)midiChannel + " " + (String)midiData1 + " " + (String)midiData2);
       if ((midiData1 >= 0x40) && (midiData1 <= 0x49)) {   // timecode data
         setTimecodeBar(midiData1, midiData2);
-        Serial.println(timecodeBar);
+        // Serial.println(timecodeBar);
       }
+      Serial.println((String)timecodeBar + (String)" <#" + (String)midiType + " " + (String)midiChannel + " " + (String)midiData1 + " " + (String)midiData2 + " =" + (String)(char)midiData2 + ".");
     }
   }
 }

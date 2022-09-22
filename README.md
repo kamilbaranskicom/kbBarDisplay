@@ -1,1 +1,1 @@
-"# kbBarDisplay" 
+# kbBarDisplay
